@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraMatch - Where Real Connections Begin</title>
+    <meta name="description" content="AuraMatch is a free dating site for meaningful connections. Join our safe dating platform today.">
+    <meta name="keywords" content="free dating site, online dating without payment, match singles near me, swipe dating website, safe dating platform">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for modern UI icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph-fill ph-sparkle"></i>
+                <span>AuraMatch</span>
+            </a>
+            <div class="nav-links">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="ph ph-sun" id="theme-icon"></i>
+                </button>
+                <button class="btn btn-outline">Log In</button>
+                <button class="btn btn-primary">Join Free</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="badge">✨ 100% Free Forever</div>
+                <h1 class="hero-title">Where <span>Real</span><br>Connections Begin.</h1>
+                <p class="hero-subtitle">Experience a modern, fast, and addictive way to meet people. Swipe, match, and chat instantly—no hidden fees, just genuine vibes.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-large" onclick="document.getElementById('swipe-section').scrollIntoView({behavior: 'smooth'})">Start Matching Now</button>
+                    <p class="secure-text"><i class="ph ph-lock-key"></i> Safe, verified, and inclusive.</p>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Abstract floating gradient bubbles -->
+                <div class="bubble b1"></div>
+                <div class="bubble b2"></div>
+                <div class="bubble b3"></div>
+                <!-- Glassmorphism Preview Card -->
+                <div class="glass-card preview-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=500" alt="Preview Profile" class="preview-img">
+                    <div class="preview-info">
+                        <h3>Maya, 26 <i class="ph-fill ph-check-circle verified"></i></h3>
+                        <p><i class="ph ph-map-pin"></i> 2 miles away</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <h2 class="section-title">Match in <span>3 Easy Steps</span></h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon"><i class="ph ph-user-plus"></i></div>
+                    <h3>1. Create Profile</h3>
+                    <p>Takes under 60 seconds. Upload photos and pick your vibe.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="ph ph-faders"></i></div>
+                    <h3>2. Set Preferences</h3>
+                    <p>Filter by age, location, and intentions. Find exactly who you want.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="ph ph-heart"></i></div>
+                    <h3>3. Swipe & Match</h3>
+                    <p>Match instantly and start chatting with our fun icebreakers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Swipe Interface Section (The Core App) -->
+        <section class="swipe-section" id="swipe-section">
+            <div class="app-container">
+                <div class="app-header">
+                    <h2><i class="ph-fill ph-fire"></i> Discover</h2>
+                    <div class="app-actions">
+                        <button class="icon-btn"><i class="ph ph-sliders"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card-stack-container" id="card-stack">
+                    <!-- Cards will be injected by JS -->
+                </div>
+
+                <div class="swipe-controls">
+                    <button class="action-btn dislike" id="btn-dislike"><i class="ph-bold ph-x"></i></button>
+                    <button class="action-btn boost" id="btn-boost"><i class="ph-bold ph-lightning"></i></button>
+                    <button class="action-btn like" id="btn-like"><i class="ph-fill ph-heart"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Popup Overlay -->
+        <div class="match-overlay" id="match-overlay">
+            <div class="match-content">
+                <h2 class="match-title">It's a Match!</h2>
+                <p>You and <span id="match-name">Alex</span> liked each other.</p>
+                <div class="match-avatars">
+                    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&q=80&w=150&h=150" alt="You" class="avatar-you">
+                    <div class="match-icon-center"><i class="ph-fill ph-heart"></i></div>
+                    <img src="" alt="Them" class="avatar-them" id="match-avatar">
+                </div>
+                <div class="icebreaker-suggestion">
+                    <p class="label">Ask them about:</p>
+                    <p class="suggestion" id="match-icebreaker">"I see you like hiking! What's your favorite trail?"</p>
+                </div>
+                <div class="match-actions">
+                    <button class="btn btn-primary w-full" onclick="closeMatchModal()">Send Message</button>
+                    <button class="btn btn-outline w-full" onclick="closeMatchModal()">Keep Swiping</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2 class="section-title">Real <span>Connections</span></h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="quote">"I loved the dark mode and how fast the app is. Met David within two days and we just clicked instantly. The icebreakers really helped break the tension!"</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Sarah">
+                        <div>
+                            <h4>Sarah, 24</h4>
+                            <span>USA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p class="quote">"Finally a dating site that doesn't ask for a credit card every 5 minutes. The swipe animation is buttery smooth. Met some great friends here."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100" alt="James">
+                        <div>
+                            <h4>James, 29</h4>
+                            <span>UK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="ph-fill ph-sparkle"></i>
+                    <span>AuraMatch</span>
+                </a>
+                <p>Bringing people together globally, for free.</p>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Community Guidelines</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Safety</h4>
+                    <a href="#">Safety Tips</a>
+                    <a href="#">Report Abuse</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AuraMatch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
